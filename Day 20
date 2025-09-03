@@ -1,0 +1,31 @@
+def sortStack(stack):
+   
+    if not stack:
+        return
+    
+   
+    top = stack.pop()
+    
+   
+    sortStack(stack)
+    
+    
+    insertSorted(stack, top)
+
+def insertSorted(stack, element):
+    
+    if not stack or stack[-1] <= element:
+        stack.append(element)
+        return
+    
+    
+    top = stack.pop()
+    insertSorted(stack, element)
+    stack.append(top)
+
+
+
+stack = [3, 1, 4, 2]
+print("Original Stack:", stack)
+sortStack(stack)
+print("Sorted Stack:", stack)
